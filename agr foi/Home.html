@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+    <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EcoFuture - Homepage</title>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: 'Inter', sans-serif;
+                }
+
+                body {
+                    background-color: #e4f5ea;
+                    color: #333;
+                }
+
+                header {
+                    background: linear-gradient(rgba(0, 100, 0, 0.5), rgba(0, 100, 0, 0.5)), url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+                    padding: 80px 20px;
+                    color: #fff;
+                    text-align: center;
+                }
+
+                header h1 {
+                    font-size: 3em;
+                    margin-bottom: 10px;
+                }
+
+                header p {
+                    font-size: 1.2em;
+                    max-width: 600px;
+                    margin: 0 auto 30px;
+                }
+
+                .btn-group { 
+                    display: flex;
+                    justify-content: center;
+                    gap: 15px; }
+
+                .btn {
+                    padding: 12px 25px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: transform 0.3s ease, background-color 0.3s ease;
+                }
+
+                .btn.primary {
+                    background-color: #2e7d32;
+                    color: #fff;
+                }
+
+                .btn.secondary {
+                    background-color: #fff;
+                    color: #2e7d32;
+                    border: 2px solid #2e7d32;
+                }
+
+                .btn:hover {
+                    transform: scale(1.05);
+                }
+
+                .btn.primary:hover {
+                    background-color: #256d27;
+                }
+
+                .btn.secondary:hover {
+                    background-color: #e0f2f1;
+                }
+
+                section {
+                    padding: 60px 20px;
+                    max-width: 1000px;
+                    margin: auto;
+                }
+
+                .about h2,
+                .services h2,
+                .impact h2 {
+                    text-align: center;
+                    font-size: 2em;
+                    margin-bottom: 20px;
+                }
+
+                .about p {
+                    text-align: justify;
+                    max-width: 700px;
+                    margin: 0 auto 20px;
+                }
+
+                .checklist {
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                    flex-wrap: wrap;
+                    margin: 20px 0;
+                }
+
+                .checklist span {
+                    background-color: #e0f2f1;
+                    padding: 10px 15px;
+                    border-radius: 20px;
+                }
+
+                .author {
+                    text-align: center;
+                    margin-top: 20px;
+                    font-style: italic;
+                }
+
+                .services .cards {
+                    display: flex;
+                    gap: 20px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+
+                .card {
+                    background: #fff;
+                    padding: 20px;
+                    height: 110px;
+                    border-radius: 10px;
+                    width: 280px;
+                    box-shadow: 0 2px 8px rgb(35, 95, 60);
+                    font-size: 17px;
+                    text-align: center;
+                    transition: transform 0.3s ease;
+                    cursor: pointer;
+                }
+
+                .card:hover {
+                    transform: translateY(-5px);
+                    background-color: #c5e1a5;
+                }
+
+                #infoBox {
+                    margin-top: 10px;
+                    background-color: #d5f0c0;
+                    padding: 10px;
+                    border-radius: 6px;
+                    font-size: 1em;
+                    text-align: justify;
+                    color: #386844;
+                    border: 2px solid #445341;
+
+                    max-height: 0;
+                    overflow: hidden;
+                    opacity: 0;
+                    transition: opacity 0.4s ease, max-height 0.5s ease;
+                }
+                #infoBox.show {
+                    max-height: 500px; /* aumente para caber qualquer conteúdo */
+                    opacity: 1;
+                }
+                .card h3 {
+                    margin-bottom: 10px;
+                    color: #2e7d32;
+                }
+
+                .recycle-image {
+                    text-align: center;
+                    margin: 40px 0;
+                }
+
+                .recycle-image img {
+                    width: 200px;
+                    border-radius: 10px;
+                }
+
+                .impact .stats {
+                    display: flex;
+                    justify-content: center;
+                    gap: 30px;
+                    flex-wrap: wrap;
+                    margin-top: 30px;
+                }
+
+                .stat {
+                    background-color: #2e7d32;
+                    color: #fff;
+                    padding: 20px;
+                    border-radius: 10px;
+                    min-width: 120px;
+                    text-align: center;
+                }
+
+                .stat h3 {
+                    font-size: 2em;
+                }
+
+                footer {
+                    background-color: #1b5e20;
+                    color: #fff;
+                    padding: 30px 20px;
+                    text-align: center;
+                }
+
+                footer a {
+                    color: #a5d6a7;
+                    margin: 0 10px;
+                    text-decoration: none;
+                }
+
+                h3 {
+                    text-align: center;
+                }
+
+            </style>
+
+        </head>
+        <body>
+            <header>
+                <h1>Liderando o caminho para um futuro sustentável</h1>
+                <p>A ecologia é o estudo das relações entre os organismos e o meio ambiente. Juntos, podemos transformar o mundo.</p>
+                <div class="btn-group">
+                <button class="btn primary">
+                    <a href="EcoVerify.html" class="home-button" >♻️ EcoVerify</a>
+                </button>
+                <button class="btn secondary">
+                    <a href="Sobre.html" class="home-button" >🔍 Saiba mais</a>
+                </button>
+                </div>
+            </header>
+
+            <section class="about">
+                <h2>Construindo juntos um futuro mais verde e duradouro</h2>
+                <p >    Acreditamos que pequenas ações geram grandes mudanças. Nosso trabalho é baseado na ciência ecológica e em soluções inteligentes para preservar o planeta. A Extec é uma plataforma digital dedicada a informar, orientar e promover a sustentabilidade no meio corporativo. Nosso propósito é conscientizar empresas e consumidores sobre a importância das práticas ambientais responsáveis, oferecendo acesso facilitado a conteúdos confiáveis, diretrizes regulatórias e recursos interativos. Acreditamos que a transformação começa com o conhecimento: por isso, criamos um site educativo e uma extensão de navegador que permite verificar, de forma prática e automatizada, se uma empresa está em conformidade com as normas ambientais vigentes. Com base nos Objetivos de Desenvolvimento Sustentável (ODS) da ONU — especialmente o ODS 12, que trata de produção e consumo responsáveis —, buscamos fomentar uma cultura de transparência, incentivar escolhas conscientes e apoiar a construção de um futuro mais ético e sustentável. Navegue pelo nosso conteúdo e descubra como atitudes simples, somadas à tecnologia, podem gerar grandes impactos.</p>
+                <div class="checklist">
+                <span background-color="#AFEEEE">✅ Entendimento do mercado</span>
+                <span background-color="#AFEEEE">✅ Soluções acessíveis</span>
+                <span background-color="#AFEEEE">✅ Inovação e impacto</span>
+                </div>
+                <div class="author">📈 ExTec – Engenheira Ambiental</div>
+            </section>
+           
+           
+            <section class="about">
+                <h2>Diretrizes Ambientais nas Empresas</h2>
+                <p>A produção responsável começa com o respeito ao meio ambiente. As diretrizes ambientais orientam as empresas a reduzirem seus impactos negativos e adotarem práticas mais sustentáveis. Conheça abaixo os principais pontos que toda empresa deve seguir:</p>
+                <h3 text-align: center;>Principais Diretrizes Ambientais</h3>
+                <p>♻️ Redução de Poluição e Resíduos
+                    Controlar emissões e tratar resíduos sólidos e líquidos de forma correta.
+                </p>
+                <p>⚡ Eficiência Energética e Fontes Renováveis
+                    Otimizar o uso de energia e priorizar fontes limpas como solar e eólica.
+                </p>
+                <p>💧 Gestão Sustentável da Água
+                    Reduzir o consumo, reaproveitar e proteger recursos hídricos.
+                </p>
+                <p>🌱 Uso Responsável de Recursos Naturais
+                    Utilizar matérias-primas recicladas ou sustentáveis e aplicar economia circular.
+                </p>
+                <p>📜 Conformidade Legal Ambiental
+                    Seguir as leis ambientais, manter licenças atualizadas e cumprir limites de emissão.
+                </p>
+                <p>📊 Avaliação de Impacto Ambiental (AIA)
+                    Estudar e mitigar impactos antes da implantação de projetos.
+                </p>
+                <p>🧩 Gestão Ambiental Integrada (SGA)
+                    Adotar sistemas de controle como a ISO 14001 e treinar equipes para melhorar continuamente.
+                </p>
+                <p>🤝 Responsabilidade Social e Transparência
+                    Compartilhar informações ambientais com o público e atuar de forma ética e consciente.
+                </p>
+                <h3>🌱 Conexão com Consumo Consciente e Economia Verde</h3>
+                <p>Ao seguir essas diretrizes, as empresas ajudam a construir uma economia verde — que valoriza o uso sustentável dos recursos naturais e minimiza impactos ambientais. Isso fortalece o consumo consciente, pois você pode escolher produtos e serviços que respeitam o planeta, contribuindo para um futuro mais equilibrado e justo para todos.
+                </p>
+                <p>🔎 Com a extensão da Extec, você pode verificar se uma empresa está alinhada com essas diretrizes — e consumir de forma mais segura e responsável.
+                </p>
+                <div class="author">📈 ExTec – Engenheira Ambiental</div>
+            </section>
+            
+            <section class="services">
+                <h2>Preservando o planeta para as próximas gerações</h2>
+                    <div class="btn-group">
+                        <button class="card" data-topic="carbono">🔹1.Como a Extec contribui para a Economia Verde?</button>
+                        <button class="card" data-topic="energia">🔹2. Uso Eficiente e Sustentável dos Recursos Naturais</button>
+                        <button class="card" data-topic="clima">🔹3. Inclusão Social e Desenvolvimento Sustentável</button>
+                    </div>
+                    <div id="infoBox"></div>
+
+            </section>
+
+
+            <section class="impact">
+                <h2>Nosso Impacto</h2>
+                <div class="stats">
+                <div class="stat"><h3>200+</h3><p>Sites consultados</p></div>
+                <div class="stat"><h3>10+</h3><p>Sites feitos</p></div>
+                <div class="stat"><h3>5+</h3><p>Sites mudados</p></div>
+                </div>
+            </section>
+
+            <footer>
+                <p>© 2025 ExTec. Todos os direitos reservados.</p>
+                <p>
+                <a href="#">Facebook</a> |
+                <a href="#">Instagram</a> |
+                <a href="#">LinkedIn</a>
+                </p>
+            </footer>
+
+            <script>
+                const infoBox = document.getElementById('infoBox');
+
+                const explanations = {
+                    carbono: 'A Extec atua como uma facilitadora da transição para a economia verde ao promover a responsabilidade ambiental no ambiente empresarial. Sua plataforma digital disponibiliza conteúdos educativos sobre normas, práticas e certificações ambientais, com o objetivo de conscientizar consumidores e empresas sobre o impacto de suas ações no planeta.',
+                    energia: 'Este princípio busca otimizar o uso dos recursos naturais — como água, solo, florestas e minerais — sem comprometer sua renovação. Isso envolve práticas como economia circular, reciclagem, reaproveitamento de materiais, agricultura sustentável e gestão inteligente da água. A meta é manter os ecossistemas em equilíbrio, reduzindo desperdícios e promovendo um modelo de produção mais durável e regenerativo.',
+                    clima: 'A economia verde não é apenas ambiental — ela também é social. Um de seus pilares é a geração de empregos verdes, a inclusão de comunidades vulneráveis em processos produtivos sustentáveis e o acesso equitativo a recursos e oportunidades. Esse princípio assegura que a transição para uma economia mais limpa também seja justa, reduzindo desigualdades e promovendo o bem-estar coletivo.'
+                };
+
+                let lastTopic = null;
+                let isTransitioning = false;
+
+                document.querySelectorAll('.card').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const topic = button.getAttribute('data-topic');
+
+                        if (isTransitioning) return; // evita cliques durante animação
+
+                        // Clicou no mesmo botão → esconde
+                        if (infoBox.classList.contains('show') && lastTopic === topic) {
+                            infoBox.classList.remove('show');
+                            lastTopic = null;
+                            return;
+                        }
+
+                        isTransitioning = true;
+
+                        // Se já está visível, faz transição de troca
+                        if (infoBox.classList.contains('show')) {
+                            infoBox.style.opacity = '0';
+
+                            setTimeout(() => {
+                                infoBox.textContent = explanations[topic] || 'Informação indisponível.';
+                                infoBox.style.opacity = '1';
+                                lastTopic = topic;
+                                isTransitioning = false;
+                            }, 300); // tempo igual ao CSS transition opacity
+                        } else {
+                            infoBox.textContent = explanations[topic] || 'Informação indisponível.';
+                            infoBox.classList.add('show');
+                            lastTopic = topic;
+                            isTransitioning = false;
+                        }
+                    });
+                });
+
+                // Clica fora → esconde
+                document.addEventListener('click', () => {
+                    infoBox.classList.remove('show');
+                    lastTopic = null;
+                });
+
+                // Evita fechar ao clicar dentro do infoBox
+                infoBox.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            </script>
+        </body>
+    </html>
