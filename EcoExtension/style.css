@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+  padding: 15px;
+  width: 300px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+#result {
+  font-size: 1em;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #f1f8e9;
+}
+
+button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #458d48;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #337537;
+}
+
+#feedbackMessage {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #2e7d32;
+}
